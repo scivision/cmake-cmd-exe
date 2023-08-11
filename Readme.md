@@ -39,3 +39,15 @@ If CMake source were modified to use the full path to cmd.exe w.r.t. build.ninja
 [too long command lines](https://gitlab.kitware.com/cmake/cmake/-/merge_requests/24)
 and
 [CMAKE_NINJA_FORCE_RESPONSE_FILE](https://gitlab.kitware.com/cmake/cmake/-/blob/master/Source/cmNinjaTargetGenerator.cxx#L1872)
+
+## Testing
+
+We use CTest to orchestrate the tests, though the failures also occur without using CTest.
+These tests fail, but should pass if local cmd.exe were ignored as we request.
+
+* FakeCmd
+* FakeCmdEcho
+
+These tests pass due to ignoring local cmd.exe:
+
+* SaferCmdEcho  (sets environment variable `NoDefaultCurrentDirectoryInExePath=1`)

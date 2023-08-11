@@ -1,4 +1,4 @@
-execute_process(COMMAND ${CMAKE_COMMAND} -E env NoDefaultCurrentDirectoryInExePath=1 cmd /c echo "hello"
+execute_process(COMMAND ${CMAKE_COMMAND} -E env NoDefaultCurrentDirectoryInExePath=1 cmd /c cd
 OUTPUT_VARIABLE out
 ERROR_VARIABLE err
 RESULT_VARIABLE ret

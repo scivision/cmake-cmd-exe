@@ -6,7 +6,6 @@ Threat model ingredients:
 
 1. other program periodically scans filesystem for CMakeCache.txt and drops malicious cmd.exe there, waiting for next time user executes CMake-generated build system to run "bad" cmd.exe.
 2. user with signed source tarball that trusts their compiler & CMake assumes the binary doesn't need to be checked (not a good assumption!). The binary could be manipulated by bad cmd.exe that (1) copied in as generated from add_custom_command()
-3. configure-time use of execute_process() or CTest could use the bad cmd.exe
 
 Categories of vulnerability to CMake users on Windows systems due to invocation of cmd.exe include:
 

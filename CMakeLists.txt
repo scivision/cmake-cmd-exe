@@ -4,7 +4,6 @@ project(FakeCmd LANGUAGES CXX)
 
 enable_testing()
 
-include(fake_cmd/fake_cmd.cmake)
-
+add_subdirectory(add_custom_command)
 add_subdirectory(ctest)
 add_subdirectory(execute_process)

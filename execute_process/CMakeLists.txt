@@ -4,11 +4,7 @@ project(ExeProcFakeCmd LANGUAGES CXX)
 
 enable_testing()
 
-# arbitrary test dir
-set(wd $ENV{TEMP})
-set(fake_cmd ${wd}/cmd.exe)
-
-include(${CMAKE_CURRENT_LIST_DIR}/../fake_cmd/fake_cmd.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/../fake_cmd.cmake)
 
 add_test(NAME CopyFakeCmd
 COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:fake_cmd> ${CMAKE_CURRENT_BINARY_DIR}/cmd.exe)

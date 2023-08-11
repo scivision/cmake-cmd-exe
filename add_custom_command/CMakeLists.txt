@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(AddCustomFakeCmd LANGUAGES CXX)
 
-include(${CMAKE_CURRENT_LIST_DIR}/../fake_cmd/fake_cmd.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/../fake_cmd.cmake)
 
 execute_process(COMMAND ${CMAKE_MAKE_PROGRAM} --version
 OUTPUT_VARIABLE gen_ver)

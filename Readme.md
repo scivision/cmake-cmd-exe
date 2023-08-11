@@ -11,7 +11,7 @@ Categories of vulnerability to CMake users on Windows systems due to invocation 
 
 1. [add_custom_command](./blob/main/add_custom_command/) that invokes cmd.exe
 2. [execute_process](./blob/main/execute_process) that invokes cmd.exe
-3. [CTest test invoking cmd.exe](./blob/main/ctest/)
+3. [add_test](./blob/main/add_test/)
 
 I tested this using the CMake executable downloaded from GitHub.
 Same symptoms with MSYS2-patched CMake.

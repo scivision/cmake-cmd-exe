@@ -4,6 +4,12 @@ project(FakeCmd LANGUAGES CXX)
 
 enable_testing()
 
+add_executable(cmake_cache_find cmake_cache_find.cxx)
+
 add_subdirectory(add_custom_command)
 add_subdirectory(ctest)
 add_subdirectory(execute_process)
+
+if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+  file(GENERATE OUTPUT .gitignore CONTENT "*")
+endif()

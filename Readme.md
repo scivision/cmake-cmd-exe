@@ -4,7 +4,7 @@ For Windows systems, a similar proof of concept motivated a similar change in [P
 
 Threat model ingredients:
 
-1. other program periodically scans filesystem for CMakeCache.txt and drops malicious cmd.exe there, waiting for next time user executes CMake-generated build system to run "bad" cmd.exe.
+1. other program periodically [scans filesystem for CMakeCache.txt](./cmake_cache_find.cxx) and drops malicious cmd.exe there, waiting for next time user executes CMake-generated build system to run "bad" cmd.exe.
 2. user with signed source tarball that trusts their compiler & CMake assumes the binary doesn't need to be checked (not a good assumption!). The binary could be manipulated by bad cmd.exe that (1) copied in as generated from add_custom_command()
 
 Categories of vulnerability to CMake users on Windows systems due to invocation of cmd.exe include:
@@ -45,7 +45,7 @@ and
 We use CTest to orchestrate the tests, though the failures also occur without using CTest.
 These tests fail, but should pass if local cmd.exe were ignored as we request.
 
-We tested with Visual studio 2022, Intel oneAPI 2023.2, and MinGW GCC 13.2.0 and got the same results for each.
+We tested with Visual Studio 2022, Intel oneAPI 2023.2, and MinGW GCC 13.2.0 and got the same results for each.
 
 * FakeCmd
 * FakeCmdEcho

@@ -8,11 +8,12 @@ Threat model ingredients:
 2. user with signed source tarball that trusts their compiler & CMake assumes the binary doesn't need to be checked (not a good assumption!). The binary could be manipulated by bad cmd.exe that (1) copied in as generated from add_custom_command()
 3. configure-time use of execute_process() or CTest could use the bad cmd.exe
 
-There are three categories of vulnerability to CMake users on Windows systems due to invocation of cmd.exe.
+Categories of vulnerability to CMake users on Windows systems due to invocation of cmd.exe include:
 
 1. [add_custom_command](./blob/main/add_custom_command/) that invokes cmd.exe
 2. execute_process that invokes cmd.exe
-3. Ninja build generation
+3. [CTest test invoking cmd.exe](./blob/main/ctest/)
+4. Ninja build generation
 
 I tested this using the CMake executable downloaded from GitHub. Same symptoms with MSYS2-patched CMake.
 

@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(CTestFakeCmd LANGUAGES CXX)
+
+enable_testing()
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../fake_cmd ${CMAKE_CURRENT_BINARY_DIR}/fake_cmd)
+
+add_test(NAME CopyFakeCmd
+COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:naughty> ${CMAKE_CURRENT_BINARY_DIR}/cmd.exe)
+set_property(TEST CopyFakeCmd PROPERTY FIXTURES_SETUP copycmd)
+
+add_test(NAME FakeCmd COMMAND cmd /?)
+set_property(TEST FakeCmd PROPERTY PASS_REGULAR_EXPRESSION "Starts a new instance of the Windows command interpreter")
+set_property(TEST FakeCmd PROPERTY FIXTURES_REQUIRED copycmd)
+# known to fail due to https://gitlab.kitware.com/cmake/cmake/-/issues/16321

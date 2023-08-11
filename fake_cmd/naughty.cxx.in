@@ -1,0 +1,14 @@
+#include <iostream>
+#include <span>
+#include <filesystem>
+
+int main(int argc, char** argv) {
+std::cout << "This is naughty cmd.exe\n";
+std::cout << "CMake @CMAKE_VERSION@  @CMAKE_GENERATOR@ @gen_ver@  @CMAKE_CXX_COMPILER_ID@ @CMAKE_CXX_COMPILER_VERSION@\n";
+std::cout << "cwd: " << std::filesystem::current_path() << "\n";
+std::cout << "argc=" << argc << " argv:\n";
+for (auto const arg : std::span(argv, argc))
+    std::cout << arg << " ";
+std::cout << std::endl;
+return 0;
+}

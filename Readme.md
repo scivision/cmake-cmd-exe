@@ -45,9 +45,15 @@ and
 We use CTest to orchestrate the tests, though the failures also occur without using CTest.
 These tests fail, but should pass if local cmd.exe were ignored as we request.
 
+We tested with Visual studio 2022, Intel oneAPI 2023.2, and MinGW GCC 13.2.0 and got the same results for each.
+
 * FakeCmd
 * FakeCmdEcho
 
 These tests pass due to ignoring local cmd.exe:
 
 * SaferCmdEcho  (sets environment variable `NoDefaultCurrentDirectoryInExePath=1`)
+
+```sh
+del /s /q build && cmake -Bbuild && cmake --build build && ctest --test-dir build -V
+```

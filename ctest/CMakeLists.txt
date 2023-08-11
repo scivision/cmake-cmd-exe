@@ -6,10 +6,6 @@ enable_testing()
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/../fake_cmd.cmake)
 
-add_test(NAME CopyFakeCmd
-COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:fake_cmd> ${CMAKE_CURRENT_BINARY_DIR}/cmd.exe)
-set_property(TEST CopyFakeCmd PROPERTY FIXTURES_SETUP copycmd)
-
 add_test(NAME FakeCmd COMMAND cmd /?)
 set_property(TEST FakeCmd PROPERTY PASS_REGULAR_EXPRESSION "Starts a new instance of the Windows command interpreter")
 set_property(TEST FakeCmd PROPERTY FIXTURES_REQUIRED copycmd)

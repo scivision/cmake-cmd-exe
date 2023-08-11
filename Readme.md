@@ -9,9 +9,9 @@ Threat model ingredients:
 
 Categories of vulnerability to CMake users on Windows systems due to invocation of cmd.exe include:
 
-1. [add_custom_command](./tree/main/add_custom_command) that invokes cmd.exe
-2. [execute_process](./tree/main/execute_process) that invokes cmd.exe
-3. [add_test](./tree/main/add_test/)
+1. [add_custom_command](https://github.com/scivision/cmake-cmd-exe/tree/main/add_custom_command) that invokes cmd.exe
+2. [execute_process](https://github.com/scivision/cmake-cmd-exe/tree/main/execute_process) that invokes cmd.exe
+3. [add_test](https://github.com/scivision/cmake-cmd-exe/tree/main/add_test)
 
 I tested this using the CMake executable downloaded from GitHub.
 Same symptoms with MSYS2-patched CMake.

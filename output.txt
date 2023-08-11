@@ -1,0 +1,26 @@
+> del /s /q buildv && cmake -Bbuildv -G Ninja && cmake --build buildv
+This is naughty cmd.exe
+CMake 3.27.1  Ninja 1.11.1  MSVC 19.37.32822.0
+cwd: "C:\\Temp\\exe\\buildv"
+argc=4 argv:
+cmd /c echo Post build
+
+# MSVC Make uses $ENV{COMSPEC} as desired
+
+# MSVC Ninja (runs fake cmd.exe)
+> del /s /q buildv && cmake -Bbuildv -G "Visual Studio 17 2022" && cmake --build buildv
+This is naughty cmd.exe
+CMake 3.27.1  Visual Studio 17 2022 MSBuild version 17.7.2+d6990bcfa for .NET Framework  MSVC 19.37.32822.0
+cwd: "C:\\Temp\\exe\\buildv"
+argc=4 argv:
+cmd /c echo Post build
+
+# oneAPI Make uses $ENV{COMSPEC} as desired
+
+# oneapi Ninja (runs fake cmd.exe)
+> del /s /q buildi && cmake -Bbuildi -G Ninja && cmake --build buildi
+This is naughty cmd.exe
+CMake 3.27.1  Ninja 1.11.1  IntelLLVM 2023.2.0
+cwd: "C:\\Temp\\exe\\buildi"
+argc=4 argv:
+cmd /c echo Post build
